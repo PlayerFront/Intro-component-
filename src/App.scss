@@ -1,0 +1,16 @@
+@import '/src/styles/abstract/mixins';
+@import '/src/styles/abstract/variables';
+.app-container {
+    max-width: 1440px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0 auto;
+    @include mobile {
+        padding: 0 $spacing-300;
+    }
+    @include tablet {
+        padding: 0 114px;
+    }
+}
