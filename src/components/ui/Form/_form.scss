@@ -36,29 +36,12 @@
             gap: $spacing-200;
         }
 
-        &__input {
-            outline: none;
-            border: 1px solid $color-gray-200;
-            border-radius: 5px;
-            padding: $spacing-200 $spacing-300;
-
-            @include tablet {
-                padding: $spacing-200 $spacing-400;
-            }
-
-            @include desktop {
-                padding: $spacing-200 $spacing-400;
-            }
-
-            &::placeholder {
-                @include text-preset-4-regular;
-                letter-spacing: 0.25px;
-                color: $color-gray-900;
-                line-height: 1.5;
-                opacity: 0.75;
-            }
+        &__eye-icon {
+            position: absolute;
+            top: 14px;
+            right: 32px;
+            z-index: 2;
         }
-
         &__addition {
             @include text-preset-5-medium;
             text-align: center;
@@ -66,9 +49,11 @@
             margin-block-start: $spacing-100;
         }
 
-        &__conditions-link, &__login-link {
+        &__conditions-link,
+        &__login-link {
             font-weight: 700;
             color: $color-red-400;
         }
+
     }
 }

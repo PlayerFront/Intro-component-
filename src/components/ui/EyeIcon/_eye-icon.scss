@@ -1,0 +1,9 @@
+@import '../../../styles/abstract/variables';
+@import '../../../styles/abstract/mixins';
+@import '../../../styles/base/typography';
+
+.bi-eye {
+    height: 24px;
+    width: 24px;
+    color: $color-gray-900;
+}

@@ -1,0 +1,60 @@
+@import '../../../styles/abstract/variables';
+@import '../../../styles/abstract/mixins';
+@import '../../../styles/base/typography';
+
+.form {
+    &__field {
+        position: relative;
+
+        &--error {
+            &::after {
+                content: '';
+                background-image: url('../../../assets/icons/icon-error.svg');
+                background-size: contain;
+                position: absolute;
+                right: 32px;
+                top: 14px;
+                height: 24px;
+                width: 24px;
+                z-index: 2;
+            }
+        }
+    }
+
+    &__error {
+        text-align: right;
+
+        &-text {
+            @include text-preset-5-medium-italic;
+            color: $color-red-400;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        outline: none;
+        border: 1px solid $color-gray-200;
+        border-radius: 5px;
+        padding: $spacing-200 $spacing-300;
+
+        @include tablet {
+            padding: $spacing-200 $spacing-400;
+        }
+
+        @include desktop {
+            padding: $spacing-200 $spacing-400;
+        }
+
+        &::placeholder {
+            @include text-preset-4-regular;
+            letter-spacing: 0.25px;
+            color: $color-gray-900;
+            line-height: 1.5;
+            opacity: 0.75;
+        }
+
+        &--error {
+            border: 2px solid $color-red-400;
+        }
+    }
+}
