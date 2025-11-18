@@ -16,8 +16,10 @@ export const useField = (defaultValue = '', validator) => {
 
     const handleBlur = () => {
         setTouched(true);
-        setError(validator ? validator(value) : '');
-    }
+        setTimeout(() => {
+            setError(validator(value));
+        }, 200);
+    };
 
     const markAsTouched = () => {
         setTouched(true);
