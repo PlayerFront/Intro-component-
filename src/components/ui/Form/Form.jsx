@@ -4,15 +4,18 @@ import SecondaryButton from '../SecondaryButton/SecondaryButton';
 import errorIcon from '../../../assets/icons/icon-error.svg';
 import FormField from '../FormField/FormField';
 import { useField } from '../../../hooks/useField';
+import { useAuth } from '../../../hooks/useAuth';
 import './_form.scss';
 import EyeIcon from '../EyeIcon/EyeIcon';
 
 const Form = () => {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-
     const togglePasswordVisibility = () => {
         setIsPasswordVisible(!isPasswordVisible);
     }
+
+    const [isLoginMode, setIsLoginMode] = useState(false);
+    const { login, register, isLoading } = useAuth();
 
     // messages is truly better for all inputs
     const getvalidationMessages = (fieldName = 'This field') => ({
@@ -90,14 +93,18 @@ const Form = () => {
     const password = useField('', (value) => validatePassword(value, 'Password'));
 
     // common function for sending data
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        [firstName, lastName, email, password].forEach(field => {
+        const fieldsToValidate = isLoginMode
+            ? [email, password]
+            : [firstName, lastName, email, password];
+
+        fieldsToValidate.forEach(field => {
             field.setTouched(true);
         });
 
-        const hasErrors = [firstName, lastName, email, password].some(field => field.error);
+        const hasErrors = fieldsToValidate.some(field => field.error);
 
         if (!hasErrors) {
             console.log('Form Submitted:', {
@@ -108,7 +115,21 @@ const Form = () => {
             });
         }
 
-        // TODO: callback API or Mock-server
+        const formData = {
+            firstName: firstName.value,
+            lastName: lastName.value,
+            email: email.value,
+            password: password.value
+        }
+
+        if (isLoginMode) {
+            await login({
+                email: formData.email,
+                password: formData.password
+            })
+        } else {
+            await register(formData);
+        }
     }
 
     return (
@@ -118,18 +139,22 @@ const Form = () => {
             </PrimaryButton>
             <form className='form' onSubmit={handleSubmit}>
                 <div className='form__container'>
-                    <FormField
-                        field={firstName}
-                        type='text'
-                        name='firstName'
-                        placeholder='First Name'
-                    />
-                    <FormField
-                        field={lastName}
-                        type='text'
-                        name='lastName'
-                        placeholder='Last Name'
-                    />
+                    {!isLoginMode && (
+                        <>
+                            <FormField
+                                field={firstName}
+                                type='text'
+                                name='firstName'
+                                placeholder='First Name'
+                            />
+                            <FormField
+                                field={lastName}
+                                type='text'
+                                name='lastName'
+                                placeholder='Last Name'
+                            />
+                        </>
+                    )}
                     <FormField
                         field={email}
                         type='email'
@@ -154,12 +179,23 @@ const Form = () => {
                         )}
                     </FormField>
                     <SecondaryButton type='submit'>
-                        CLAIM YOUR FREE TRIAL
+                        {isLoginMode ? 'LOG IN' : 'CLAIM YOUR FREE TRIAL'}
                     </SecondaryButton>
                 </div>
                 <div className='form__addition'>
                     <p className='form__conditions'>By clicking the button, you are agreeing to our <a className='form__conditions-link' href='#'>Terms and Services</a></p>
-                    <p className='form__login' >Do you have an account? <a className='form__login-link' href='#'>Log In</a></p>
+                    <p className='form__login'> {isLoginMode ? 'Do not have an account?' : 'Already have an account?'}
+                        <a
+                            className='form__login-link'
+                            href='#'
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setIsLoginMode(!isLoginMode);
+                            }}
+                        >
+                            {isLoginMode ? ' Sing Up' : ' Log In'}
+                        </a>
+                    </p>
                 </div>
             </form>
         </div >
