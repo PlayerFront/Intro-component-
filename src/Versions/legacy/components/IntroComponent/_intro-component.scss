@@ -1,0 +1,49 @@
+@import '../../styles/abstract/variables';
+@import '../../styles/abstract/mixins';
+@import '../../styles/base/typography';
+
+.intro-component {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-800;
+    min-height: fit-content;
+    max-width: 1113px;
+    // padding: 0 $spacing-300;
+
+    @include desktop {
+        flex-direction: row;
+        gap: $spacing-600;
+        align-items: center;
+        justify-content: center;
+    }
+    @include tablet {
+        padding: 0 $spacing-100;
+    }
+    &__description {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-200;
+
+        @include desktop {
+            flex-basis: 50%;
+            text-align: left;
+            align-self: center;
+        }
+    }
+    &__title {
+        color: $color-white;
+        @include text-preset-2-bold;
+        
+        @include tablet {
+            @include text-preset-1-bold;
+        }
+        @include desktop {
+            @include text-preset-1-bold;
+        }
+    }
+    &__subtitle {
+        color: $color-white;
+        @include text-preset-3-medium;
+    }
+}

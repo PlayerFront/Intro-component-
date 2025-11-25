@@ -1,0 +1,54 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+fieldset {
+  border: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image: url("/public/assets/images/bg-intro-mobile.png");
+  background-size: 100%;
+  background-repeat: cover;
+  background-position: center;
+  background-color: #FF7979;
+}
+@media (min-width: 768px) and (max-width: 1024px), (min-width: 768px) and (orientation: portrait) and (max-width: 1024px) {
+  body {
+    background-image: url("/public/assets/images/bg-intro-desktop.png");
+  }
+}
+@media (min-width: 1025px), (min-width: 768px) and (orientation: landscape) and (min-width: 1025px) {
+  body {
+    background-image: url("/public/assets/images/bg-intro-desktop.png");
+  }
+}/*# sourceMappingURL=main.css.map */

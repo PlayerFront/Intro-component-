@@ -1,0 +1,22 @@
+// Mobile: vertical oriantation before a tablet
+@mixin mobile {
+  @media (max-width: 767px), 
+         (max-width: 1024px) and (orientation: portrait) {
+    @content;
+  }
+}
+// Tablet: for horizontal mobile's orientation and horizontal orient. for tablets
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1024px),
+         (min-width: 768px) and (orientation: portrait) and (max-width: 1024px) {
+    @content;
+  }
+}
+// Desktop: for horizontal tablet's orientation and just desktop
+@mixin desktop {
+  @media (min-width: 1025px),
+         (min-width: 768px) and (orientation: landscape) and (min-width: 1025px) {
+    @content;
+  }
+}
+ 

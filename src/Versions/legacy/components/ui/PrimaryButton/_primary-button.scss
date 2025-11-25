@@ -1,0 +1,18 @@
+@import '../../../styles/abstract/variables';
+@import '../../../styles/abstract/mixins';
+@import '../../../styles/base/typography';
+
+.primary-button {
+    @include text-preset-4-regular;
+    color: $color-white;
+    font-size: 15px;
+    letter-spacing: 0.25px;
+    background: $color-purple-700;
+    padding: 17px 66px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.15);
+}

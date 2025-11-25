@@ -1,0 +1,20 @@
+@import '../abstract/variables';
+@import '../abstract/mixins';
+
+body {
+    background-image: url('/public/assets/images/bg-intro-mobile.png');
+    background-size: 100%;
+    background-repeat: cover;
+    background-position: center;
+    background-color: $color-red-400;
+
+
+    @include tablet {
+        background-image: url('/public/assets/images/bg-intro-desktop.png');
+    }
+
+    @include desktop {
+        background-image: url('/public/assets/images/bg-intro-desktop.png');
+    }
+
+}

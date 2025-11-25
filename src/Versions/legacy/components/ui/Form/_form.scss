@@ -1,0 +1,59 @@
+@import '../../../styles/abstract/variables';
+@import '../../../styles/abstract/mixins';
+@import '../../../styles/base/typography';
+
+.intro-component {
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-300;
+        flex-basis: 50%;
+    }
+
+    &__span {
+        font-weight: 700;
+    }
+
+    .form {
+        background: $color-white;
+        padding: $spacing-300;
+        border-radius: 10px;
+        box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.15);
+
+        @include tablet {
+            gap: $spacing-300;
+            padding: $spacing-400 $spacing-500;
+        }
+
+        @include desktop {
+            gap: $spacing-300;
+            padding: $spacing-400 $spacing-500;
+        }
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-200;
+        }
+
+        &__eye-icon {
+            position: absolute;
+            top: 14px;
+            right: 32px;
+            z-index: 2;
+        }
+        &__addition {
+            @include text-preset-5-medium;
+            text-align: center;
+            color: $color-purple-400;
+            margin-block-start: $spacing-100;
+        }
+
+        &__conditions-link,
+        &__login-link {
+            font-weight: 700;
+            color: $color-red-400;
+        }
+
+    }
+}

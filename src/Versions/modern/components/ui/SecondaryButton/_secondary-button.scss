@@ -1,0 +1,20 @@
+@import '../../../styles/abstract/variables';
+@import '../../../styles/abstract/mixins';
+@import '../../../styles/base/typography';
+
+.secondary-button {
+    @include text-preset-4-semibold;
+    color: $color-white;
+    background: $color-green-400;
+    padding: $spacing-200 $spacing-400;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0px -4px 0px 0px rgba(0, 0, 0, 0.09);
+    transition: all 0.4s ease;
+
+    &:active {
+        background: $color-green-300;
+    }
+}

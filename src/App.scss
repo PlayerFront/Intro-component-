@@ -1,16 +1,40 @@
 @import '/src/styles/abstract/mixins';
 @import '/src/styles/abstract/variables';
+
 .app-container {
     max-width: 1440px;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     margin: 0 auto;
+
     @include mobile {
         padding: 88px $spacing-300;
     }
+
     @include tablet {
         padding: 0 114px;
+    }
+
+    .version-switcher {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        justify-content: center;
+
+        button {
+            padding: 10px 20px;
+            border: 2px solid #ccc;
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+
+            &.active {
+                border-color: #ff6b6b;
+                background: #ff6b6b;
+                color: white;
+            }
+        }
     }
 }

@@ -26,6 +26,12 @@ export const useField = (defaultValue = '', validator) => {
         setError(validator ? validator(value) : '');
     };
 
+    const reset = () => {
+        setValue(defaultValue);
+        setError('');
+        setTouched(false); //!!!!!!!!!!!
+    }
+
     return {
         value,
         error,
@@ -33,6 +39,7 @@ export const useField = (defaultValue = '', validator) => {
         handleChange,
         handleBlur,
         setTouched: markAsTouched,
-        setError
+        setError,
+        reset
     };
 };

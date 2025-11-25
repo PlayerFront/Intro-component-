@@ -10,11 +10,15 @@ export const fakeAuthServer = {
     async login(credentials) {
         await simulateNetworkDelay();
 
+        console.log('🔐 LOGIN ATTEMPT:', credentials); // ← что приходит
+        console.log('📋 AVAILABLE USERS:', testUsers); // ← кто есть в базе
+
         const user = testUsers.find(u =>
             u.email === credentials.email &&
             u.password === credentials.password
         );
 
+        console.log('👤 FOUND USER:', user); // отладка
         if (user) {
             return {
                 success: true,

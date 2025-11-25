@@ -69,6 +69,7 @@ const Form = () => {
     });
 
     const handleAuthSuccess = (result, formData) => {
+        
         alert(`${result.data.message}\n\nWelcome, ${result.data.user.firstName}`);
 
         if (!isLoginMode) {
@@ -170,9 +171,9 @@ const Form = () => {
                 <div className='form__addition'>
                     <p className='form__conditions'>
                         By clicking the button, you are agreeing to our
-                        <a className='form__conditions-link' href='#'>Terms and Services</a>
+                        <a className='form__conditions-link' href='#'> Terms and Services</a>
                     </p>
-                    <p className='form__login'> {isLoginMode ? 'Do not have an account?' : 'Already have an account?'}
+                    <p className='form__login'> {isLoginMode ? 'Do not have an account? ' : 'Already have an account? '}
                         <a
                             className='form__login-link'
                             href='#'
