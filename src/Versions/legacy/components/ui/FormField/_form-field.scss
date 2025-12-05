@@ -18,9 +18,12 @@
                 width: 24px;
                 z-index: 2;
             }
+
+            &.form__field--password::after {
+                display: none;
+            }
         }
     }
-
     &__error {
         text-align: right;
 

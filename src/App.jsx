@@ -5,25 +5,26 @@ import ModernComponent from './Versions/modern/components/IntroComponent/IntroCo
 
 function App() {
   const [useLegacyVersion, setUseLegacyVersion] = useState(true);
+
   return (
-      <div className='app-container'>
-        <div className='version-switcher'>
-          <button
-            className={useLegacyVersion ? 'active' : ''}
-            onClick={() => setUseLegacyVersion(true)}
-          >
-            Legacy Version - Handmade
-          </button>
-          <button
-            className={!useLegacyVersion ? 'active' : ''}
-            onClick={() => setUseLegacyVersion(false)}
-          >
-            Modern Version - React Hook Form
-          </button>
-        </div>
-        {useLegacyVersion ? <LegacyComponent /> : <ModernComponent />}
+    <div className='app-container'>
+      {useLegacyVersion ? <LegacyComponent /> : <ModernComponent />}
+      <div className='version-switcher'>
+        <button
+          className={useLegacyVersion ? 'active' : ''}
+          onClick={() => setUseLegacyVersion(true)}
+        >
+          Legacy Version - Handmade
+        </button>
+        <button
+          className={!useLegacyVersion ? 'active' : ''}
+          onClick={() => setUseLegacyVersion(false)}
+        >
+          Modern Version - React Hook Form
+        </button>
       </div>
-      )
+    </div>
+  );
 }
 
-export default App
+export default App;

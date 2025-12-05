@@ -42,6 +42,7 @@
             right: 32px;
             z-index: 2;
         }
+
         &__addition {
             @include text-preset-5-medium;
             text-align: center;
@@ -54,59 +55,64 @@
             font-weight: 700;
             color: $color-red-400;
         }
-         &__field {
-        position: relative;
 
-        &--error {
-            &::after {
-                content: '';
-                background-image: url('../../../assets/icons/icon-error.svg');
-                background-size: contain;
-                position: absolute;
-                right: 32px;
-                top: 14px;
-                height: 24px;
-                width: 24px;
-                z-index: 2;
+        &__field {
+            position: relative;
+
+            &--error {
+                &::after {
+                    content: '';
+                    background-image: url('../../../assets/icons/icon-error.svg');
+                    background-size: contain;
+                    position: absolute;
+                    right: 32px;
+                    top: 14px;
+                    height: 24px;
+                    width: 24px;
+                    z-index: 2;
+                }
+
+                &.form__field--password::after {
+                    display: none;
+                }
             }
         }
-    }
 
-    &__error {
-        text-align: right;
+        &__error {
+            text-align: right;
 
-        &-text {
-            @include text-preset-5-medium-italic;
-            color: $color-red-400;
-        }
-    }
-
-    &__input {
-        width: 100%;
-        outline: none;
-        border: 1px solid $color-gray-200;
-        border-radius: 5px;
-        padding: $spacing-200 $spacing-300;
-
-        @include tablet {
-            padding: $spacing-200 $spacing-400;
+            &-text {
+                @include text-preset-5-medium-italic;
+                color: $color-red-400;
+            }
         }
 
-        @include desktop {
-            padding: $spacing-200 $spacing-400;
-        }
+        &__input {
+            width: 100%;
+            outline: none;
+            border: 1px solid $color-gray-200;
+            border-radius: 5px;
+            padding: $spacing-200 $spacing-300;
 
-        &::placeholder {
-            @include text-preset-4-regular;
-            letter-spacing: 0.25px;
-            color: $color-gray-900;
-            line-height: 1.5;
-            opacity: 0.75;
-        }
+            @include tablet {
+                padding: $spacing-200 $spacing-400;
+            }
 
-        &--error {
-            border: 2px solid $color-red-400;
+            @include desktop {
+                padding: $spacing-200 $spacing-400;
+            }
+
+            &::placeholder {
+                @include text-preset-4-regular;
+                letter-spacing: 0.25px;
+                color: $color-gray-900;
+                line-height: 1.5;
+                opacity: 0.75;
+            }
+
+            &--error {
+                border: 2px solid $color-red-400;
+            }
         }
-    }
     }
 }
