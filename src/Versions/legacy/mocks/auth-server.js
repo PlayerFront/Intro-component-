@@ -10,8 +10,8 @@ export const fakeAuthServer = {
   async login(credentials) {
     await simulateNetworkDelay();
 
-    console.log('🔐 LOGIN ATTEMPT:', credentials);
-    console.log('📋 AVAILABLE USERS:', testUsers); 
+    console.log(' LOGIN ATTEMPT:', credentials);
+    console.log(' AVAILABLE USERS:', testUsers); 
 
     const user = testUsers.find(u =>
       u.email === credentials.email &&
