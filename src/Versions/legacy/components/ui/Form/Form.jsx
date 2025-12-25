@@ -6,7 +6,7 @@ import FormField from '../FormField/FormField';
 import EyeIcon from '../EyeIcon/EyeIcon';
 import { useField } from '../../../hooks/useField';
 import { useAuth } from '../../../hooks/useAuth';
-// import { testUsers } from '../../../mocks/test-users';
+import { testUsers } from '../../../mocks/test-users';
 import { validateName, validateEmail, validatePassword } from '../../../utils/validation';
 import './_form.scss';
 
@@ -27,7 +27,7 @@ const Form = () => {
   // state
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isLoginMode, setIsLoginMode] = useState(false);
-  const [isSubmiting, setIsSubmiting] = useState(false); //!!!!!!!
+  const [isSubmiting, setIsSubmiting] = useState(false);
 
   // auth
   const { login, register, isLoading } = useAuth();
