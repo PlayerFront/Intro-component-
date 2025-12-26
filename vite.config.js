@@ -3,8 +3,8 @@ import react from '@vitejs/plugin-react-swc'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Intro-component-/',
-    css: {
+  base: './',
+  css: {
     devSourcemap: true, 
-  }
-})
+  },
+});
