@@ -17,7 +17,19 @@ A React project demonstrating two different approaches to form implementation: h
 - ✅ TypeScript-ready validation
 - ✅ Minimal boilerplate code
 
-## 🚀 Quick Start
+## Demo
+
+https://playerfront.github.io/Intro-component-/
+
+## 📱 Screenshots
+
+### Desktop Version
+![Desktop Screenshot](./docs/screenshots/playerfront.github.io_Intro-component-_.png)
+
+### Mobile Version  
+![Mobile Screenshot](./docs/screenshots/playerfront.github.io_Intro-component-_(iPhone 14 Pro Max).png)
+
+## Quick Start
 
 # Install dependencies
 npm install
@@ -25,7 +37,7 @@ npm install
 # Start development server
 npm run dev
 
-## 🧪 Testing
+## Testing
 
 ### Test Coverage & Results
 
@@ -48,7 +60,7 @@ npm run dev
 
 ### Key Testing Areas
 
-#### ✅ Form Component (98.57% coverage)
+#### Form Component (98.57% coverage)
 - Registration flow with all fields
 - Login mode with email/password only
 - Mode switching (register ↔ login)
@@ -57,12 +69,12 @@ npm run dev
 - Network error handling
 - Form submission states
 
-#### ✅ Custom Hooks (98.59% coverage)
+#### Custom Hooks (98.59% coverage)
 - `useField` - form field state management
 - `useAuth` - authentication logic
 - Async operations and error states
 
-#### ✅ Integration Tests
+#### Integration Tests
 - Complete user registration → automatic login switch
 - Validation error → correction → success flow
 - Network failure → retry → success scenario
