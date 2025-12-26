@@ -27,7 +27,7 @@ https://playerfront.github.io/Intro-component-/
 ![Desktop Screenshot](./docs/screenshots/playerfront.github.io_Intro-component-_.png)
 
 ### Mobile Version  
-![Mobile Screenshot](./docs/screenshots/playerfront.github.io_Intro-component-_(iPhone 14 Pro Max).png)
+![Mobile Screenshot](./docs/screenshots/mobile.png)
 
 ## Quick Start
 
