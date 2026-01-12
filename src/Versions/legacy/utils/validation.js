@@ -2,6 +2,7 @@ export const getvalidationMessages = (fieldName = 'This field') => ({
   required: `${fieldName} is required`,
   empty: `${fieldName} cannot be empty`,
   tooShort: `${fieldName} must be at least 2 characters long`,
+  tooShortPassword: `${fieldName} must be at least 8 characters long`,
   tooLong: `${fieldName} cannot exceed 50 characters`,
   invalidChars: `${fieldName} can only contain letters, hyphens, and astrophes`,
   multipleSpaces: `${fieldName} cannot contain multiple spaces`,
@@ -61,7 +62,7 @@ export const validatePassword = (value, fieldName = 'Password') => {
 
   const trimmedValue = value.trim();
   if (!trimmedValue) return messages.empty;
-  if (trimmedValue.length < 8) return messages.tooShort;
+  if (trimmedValue.length < 8) return messages.tooShortPassword;
   if (trimmedValue.length > 50) return messages.tooLong;
 
   const validPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,50}$/;

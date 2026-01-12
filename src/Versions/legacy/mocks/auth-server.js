@@ -11,14 +11,14 @@ export const fakeAuthServer = {
     await simulateNetworkDelay();
 
     console.log(' LOGIN ATTEMPT:', credentials);
-    console.log(' AVAILABLE USERS:', testUsers); 
+    console.log(' AVAILABLE USERS:', testUsers);
 
     const user = testUsers.find(u =>
       u.email === credentials.email &&
-            u.password === credentials.password,
+      u.password === credentials.password,
     );
 
-    console.log('👤 FOUND USER:', user); 
+    console.log('👤 FOUND USER:', user);
     if (user) {
       return {
         success: true,

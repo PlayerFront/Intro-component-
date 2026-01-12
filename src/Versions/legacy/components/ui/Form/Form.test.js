@@ -242,7 +242,7 @@ describe('form - legacy version, unit tests', () => {
 // integration tests
 describe('Form-legacy version, integration tests', () => {
   test('User can register and form switches to login Mode', async () => {
-    // моки
+    // mocks
     const mockAlert = jest.fn();
     global.alert = mockAlert;
 
@@ -285,7 +285,6 @@ describe('Form-legacy version, integration tests', () => {
       password: 'Password123!',
     });
 
-
     expect(mockAlert).toHaveBeenCalledWith(
       expect.stringContaining('Registration successful'),
     );
@@ -304,6 +303,7 @@ describe('Form-legacy version, integration tests', () => {
   });
 
   test('Validation error - correction - success', async () => {
+    // mocks
     const mockAlert = jest.fn();
     global.alert = mockAlert;
 
@@ -321,6 +321,7 @@ describe('Form-legacy version, integration tests', () => {
       logout: jest.fn(),
     });
 
+    // field error
     useField
       .mockReturnValueOnce({ ...mockUseField(), value: 'John' })
       .mockReturnValueOnce({ ...mockUseField(), value: 'Doe' })
@@ -332,10 +333,12 @@ describe('Form-legacy version, integration tests', () => {
       .mockReturnValueOnce({ ...mockUseField(), value: 'Password123!' });
 
     const { rerender } = render(<Form />);
+
     expect(screen.getByText(/Looks like this is not an Email/i)).toBeInTheDocument();
 
     useField.mockReset();
-  
+    
+    // correction
     let callCount = 0;
     useField.mockImplementation((defaultValue, validator) => {
       callCount++;
@@ -354,6 +357,7 @@ describe('Form-legacy version, integration tests', () => {
       rerender(<Form />);
     });
 
+    // submition with success
     expect(screen.queryByText(/Looks like this is not an Email/i)).not.toBeInTheDocument();
 
     await userEvent.click(screen.getByText('CLAIM YOUR FREE TRIAL'));

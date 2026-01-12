@@ -8,6 +8,9 @@ import './_form.scss';
 import { useEffect, useState } from 'react';
 import { realAuthService } from '../../../services/real-auth-service';
 
+/**
+ * comment ot later
+ */
 const registerSchema = z.object({
   firstName: z.string().min(2, 'First Name must be at least 2 characters'),
   lastName: z.string().min(2, 'Last name must be at least 2 characters'),
@@ -47,13 +50,13 @@ const Form = () => {
   };
 
   const onSubmit = async (data) => {
-    console.log('Sending to real API', data); //!!!!!!!!!!!
+    console.log('Sending to real API', data); 
 
     const result = isLoginMode
       ? await realAuthService.login(data)
       : await realAuthService.register(data);
 
-    console.log('API response:', result); //!!!!!!!!
+    console.log('API response:', result); 
     if (result.success) {
       alert(`${result.message}`);
       if (!isLoginMode) setIsLoginMode(true);
@@ -66,7 +69,7 @@ const Form = () => {
     <div className='intro-component__form'>
       <PrimaryButton>
         <p>
-          <span className='intro-component__span'>Try it free 7 days
+          <span className='intro-component__span'>Try it free 7 days&nbsp;
           </span>
           then $20/mo. thereafter
         </p>

@@ -1,14 +1,18 @@
 import { fakeAuthServer } from '../mocks/auth-server';
 
+/**
+ * Using console.log only for server's work visibility
+ */
+
 export const authService = {
   async login(credentials) {
-    console.log('Sending to MOCK API - Login', credentials); //!!!!!!!!!!!!
+    console.log('Sending to MOCK API - Login', credentials); 
     try {
       const response = await fakeAuthServer.login(credentials);
-      console.log('MOCK API response:', response); //!!!!!!!!!!!!!!
+      console.log('MOCK API response:', response); 
       return response;
     } catch (error) {
-      console.log('MOCK API error', error); //!!!!!!!!!!!!!!!
+      console.log('MOCK API error', error); 
       return {
         success: false,
         error: 'Network error',
@@ -21,10 +25,10 @@ export const authService = {
     console.log('Sending to MOCK API - register', userData);
     try {
       const response = await fakeAuthServer.register(userData);
-      console.log('MOCK API response', response); //!!!!!!!!!!!
+      console.log('MOCK API response', response); 
       return response;
     } catch (error) {
-      console.log('MOCK API error', error); //!!!!!!!!!!!!
+      console.log('MOCK API error', error); 
       return {
         success: false,
         error: 'Network error',

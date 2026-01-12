@@ -10,6 +10,9 @@ import { testUsers } from '../../../mocks/test-users';
 import { validateName, validateEmail, validatePassword } from '../../../utils/validation';
 import './_form.scss';
 
+/**
+ * comment this component later!!!!!!
+ */
 const FORM_TEXTS = {
   login: {
     button: 'LOG IN',
@@ -133,7 +136,7 @@ const Form = () => {
     <div className='intro-component__form'>
       <PrimaryButton>
         <p>
-          <span className='intro-component__span'>Try it free 7 days
+          <span className='intro-component__span'>Try it free 7 days&nbsp;   
           </span>
           then $20/mo. thereafter
         </p>
